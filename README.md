@@ -34,3 +34,5 @@ Deepfakes are becoming more accessible and harder to detect. Existing tools are 
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
+
+“Veritas” means truth — and this system exists to verify it. 🔍✨
