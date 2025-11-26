@@ -1,4 +1,6 @@
 streamlit
 groq
-python-dotenv
-
+scikit-learn
+pandas
+joblib
+numpy
