@@ -4,6 +4,10 @@ from groq import Groq
 import os
 from agent_pipeline import run_agent_pipeline
 
+# Initialize persistent analysis state
+if "fake_score" not in st.session_state:
+    st.session_state.fake_score = None
+
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 def deepcheck_chat_reply(messages, score: float | None = None) -> str:
@@ -415,6 +419,7 @@ with col2:
 
             # now show final results
             fake_score = 12.5  # placeholder score
+            st.session_state.fake_score = fake_score
             st.success("Analysis complete!")
 
             result_box = st.container()
@@ -511,7 +516,7 @@ if send_clicked and user_msg.strip():
         })
 
     # Use deepfake score if exists
-    current_score = fake_score if "fake_score" in locals() else None
+    current_score = st.session_state.get("fake_score")
 
     try:
         reply_text = deepcheck_chat_reply(messages_for_api, score=current_score)
