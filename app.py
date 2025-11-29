@@ -2,6 +2,7 @@ import streamlit as st
 import time
 import os
 import joblib
+from groq import Groq
 
 # --- IMPORT YOUR NEW PIPELINE ---
 # This connects the frontend to your new Agent files
@@ -91,12 +92,13 @@ hud_css = """
 }
 
 /* --- FIX FOR INVISIBLE TEXT INPUTS --- */
+/* This forces the text color to be light and the cursor to be cyan */
 [data-testid="stTextInput"] input {
     background: transparent !important;
     border: none !important;
     color: #e9efff !important;
-    -webkit-text-fill-color: #e9efff !important; /* Force text color on Chrome/Safari */
-    caret-color: #00f7ff !important; /* Neon cyan cursor */
+    -webkit-text-fill-color: #e9efff !important;
+    caret-color: #00f7ff !important;
     font-family: "Montserrat", sans-serif;
 }
 [data-testid="stTextInput"] > div {
