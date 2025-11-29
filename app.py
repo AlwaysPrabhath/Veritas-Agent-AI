@@ -2,6 +2,7 @@ import streamlit as st
 import time
 from groq import Groq
 import os
+from agent_pipeline import run_agent_pipeline
 
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
